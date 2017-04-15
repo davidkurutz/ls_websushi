@@ -21,7 +21,7 @@ var CartView = Backbone.View.extend({
           App.trigger("empty");
         });
       }
-    })
+    });
   },
   render: function() {
     this.$el.html(this.template( {
@@ -39,4 +39,4 @@ var CartView = Backbone.View.extend({
     this.render();
     this.listenTo(this.collection, "cart_updated", this.render);
   }
-})
+});

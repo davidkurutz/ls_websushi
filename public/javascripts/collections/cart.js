@@ -21,7 +21,7 @@ var Cart = Backbone.Collection.extend({
       existing_m.set('quantity', current_q - 1);
       this.trigger('model_update');
     } else {
-      this.remove(model)
+      this.remove(model);
     }
   },
   quantity: function() {
@@ -37,10 +37,10 @@ var Cart = Backbone.Collection.extend({
   sum: function(array) {
     return array.reduce(function(a,b) {
       return a + b;
-    }, 0)
+    }, 0);
   },
   empty: function() {
-    this.reset([])
+    this.reset([]);
   },
   destroy: function(id) {
     this.remove(id);
@@ -49,9 +49,9 @@ var Cart = Backbone.Collection.extend({
     this.trigger('cart_updated');
   },
   bindEvents: function() {
-    this.on('add remove reset model_update', this.updateCartView)
+    this.on('add remove reset model_update', this.updateCartView);
   },
   initialize: function() {
     this.bindEvents();
   }
-})
+});

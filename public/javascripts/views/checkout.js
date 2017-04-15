@@ -9,7 +9,6 @@ var CheckoutView = Backbone.View.extend({
     // 'submit form': "cancelOrder"
   },
   cancelOrder: function(e) {
-    console.log(e.target)
     App.trigger('empty');
   },
   changeQuantity: function(e) {
@@ -19,7 +18,7 @@ var CheckoutView = Backbone.View.extend({
         cart = this.collection;
 
     $(e.target).hasClass('fa-plus') ? cart.addItem(model) : cart.removeItem(model);
-    this.render()
+    this.render();
     this.delegateEvents();
     cart.sync('update', cart);
   },
@@ -27,11 +26,11 @@ var CheckoutView = Backbone.View.extend({
     this.$el.html(this.template({
       items: this.collection.toJSON(),
       total: this.collection.total()
-    }))
+    }));
     App.$el.html(this.$el);
     $("#cart").css("display", "none");
   },
   initialize: function() {
-    this.render()
+    this.render();
   }
-})
+});

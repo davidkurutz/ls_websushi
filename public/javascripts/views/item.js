@@ -5,7 +5,7 @@ var ItemView = BaseItemView.extend({
     "click header": "detailView"
   },
   events: function() {
-    return _.extend({}, BaseItemView.prototype.events, this.additionalEvents)
+    return _.extend({}, BaseItemView.prototype.events, this.additionalEvents);
   },
   detailView: function(e) {
     e.preventDefault();
@@ -14,9 +14,6 @@ var ItemView = BaseItemView.extend({
   render: function() {
     this.$el.html(this.template(this.model.toJSON()));
     this.$el.appendTo(App.$el.find("#items"));
-  },
-  initialize: function() {
-    this.render();
   }
 });
 

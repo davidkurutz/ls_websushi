@@ -15,8 +15,11 @@ var BaseItemView = Backbone.View.extend({
         "item": JSON.stringify(data)
       },
       success: function() {
-        App.trigger("add_to_cart", item)
+        App.trigger("add_to_cart", item);
       }
-    })
+    });
+  },
+  initialize: function() {
+    this.render();
   }
-})
+});

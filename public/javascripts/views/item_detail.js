@@ -4,27 +4,49 @@ var ItemDetailView = BaseItemView.extend({
   },
   template: App.templates.item_detail,
   additionalEvents: {
-    'click .prev': 'prevItem',
-    'click .next': 'nextItem',
-    'click a.close': 'close',
+    'click .nav' : "switch",
+    'click a.close': 'close'
   },
   events: function() {
-    return _.extend({}, BaseItemView.prototype.events, this.additionalEvents)
+    return _.extend({}, BaseItemView.prototype.events, this.additionalEvents);
   },
   close: function(e) {
     e.preventDefault();
     App.menuView();
   },
-  prevItem: function(e) {
+  switch: function(e) {
     e.preventDefault();
-    App.prevItem(this.model.get('id'));
+    var id = this.model.get('id'),
+        direction,
+        new_id;
+
+    if ($(e.currentTarget).hasClass('prev')) {
+      direction = 'left';
+      new_id = this.model.collection.prevID(id);
+    } else {
+      direction = 'right';
+      new_id = this.model.collection.nextID(id);
+    }
+    this.slideTo(new_id, direction);
   },
-  nextItem: function(e) {
-    e.preventDefault();
-    App.nextItem(this.model.get('id'));
+  slideTo: function(id, direction) {
+    var $item = $(this.$el.children('div')[0]),
+        itemWidth = $item.css('width'),
+        leftPos = 0;
+    
+    leftPos = direction === 'left' ? itemWidth : leftPos;
+
+    $item.animate({
+      position: 'absolute',
+      width: '-=' + itemWidth,
+      left: '+=' + leftPos
+    }, 150, function() {
+      this.remove();
+      App.detailView(id);
+    });
   },
   render: function(direction) {
     this.$el.html(this.template(this.model.toJSON()));
     App.$el.html(this.$el);
   }
-})
+});

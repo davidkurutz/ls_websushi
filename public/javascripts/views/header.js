@@ -16,6 +16,6 @@ var HeaderView = Backbone.View.extend({
   },
   initialize: function() {
     this.render();
-    this.listenTo(this.collection, 'cart_updated', this.render)
+    this.listenTo(this.collection, 'cart_updated', this.render);
   }
-})
+});

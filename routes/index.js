@@ -7,7 +7,7 @@ var express = require('express'),
 /* GET home page. */
 
 module.exports = function(router) {
-  router.get('/index.html', function(req, res, next) {
+  router.get(['/index.html', "/menu", ""], function(req, res, next) {
     res.render('index', { 
       items: Items.get(),
       cart: Cart.get()

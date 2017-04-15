@@ -6,11 +6,15 @@ var App = {
   },
   speed: 250,
   renderItemView: function(item) {
-    new ItemView({ model: item })
+    new ItemView({ model: item });
   },
   createCart: function() {
     if (this.cartView) {
-      _.isEmpty(this.cart.models) ? this.cartView.render() : this.cartView.$el.show();
+      if (_.isEmpty(this.cart.models)) {
+        this.cartView.render();
+      } else {
+        this.cartView.$el.show();
+      }
     } else {
       this.cartView = new CartView({ collection: this.cart });
     }
@@ -27,27 +31,16 @@ var App = {
     this.createCart();
     this.$el.html("<ul id='items'>");
     this.renderItems();
-    router.navigate('menu')
+    router.navigate('menu');
   },
   detailView: function(id) {
     var model = this.items.get(id);
     router.navigate("menu/" + id);
-    new ItemDetailView({ model: model }).render()
+    new ItemDetailView({ model: model });
   },
   checkoutView: function() {
     this.createCart();
-    new CheckoutView({ collection: this.cart })
-  },
-  ids: function() {
-    return this.items.pluck('id');
-  },
-  prevItem: function(id) {
-    var prevID = id > _.min(this.ids()) ? id - 1 : _.max(this.ids())
-    this.detailView(prevID, 'left');
-  },
-  nextItem: function(id) {
-    var nextID = id < _.max(this.ids()) ? id + 1 : _.min(this.ids())
-    this.detailView(nextID, 'right');
+    new CheckoutView({ collection: this.cart });
   },
   bindEvents: function() {
     _.extend(this, Backbone.Events);
@@ -61,8 +54,8 @@ var App = {
 
 Handlebars.registerHelper("format_price", function(price) {
   return "$" + (+price).toFixed(2);
-})
+});
 
 Handlebars.registerHelper("kj_to_kcal", function(kj) {
-  return (0.239006 * kj).toFixed(4)
-})
+  return (0.239006 * kj).toFixed(4);
+});
