@@ -39,7 +39,6 @@ var App = {
     new ItemDetailView({ model: model });
   },
   checkoutView: function() {
-    this.createCart();
     new CheckoutView({ collection: this.cart });
   },
   bindEvents: function() {
