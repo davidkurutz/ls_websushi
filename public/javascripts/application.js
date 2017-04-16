@@ -10,7 +10,7 @@ var App = {
   },
   createCart: function() {
     if (this.cartView) {
-      if (_.isEmpty(this.cart.models)) {
+      if (this.cart.isEmpty()) {
         this.cartView.render();
       } else {
         this.cartView.$el.show();
@@ -40,14 +40,6 @@ var App = {
   },
   checkoutView: function() {
     new CheckoutView({ collection: this.cart });
-  },
-  bindEvents: function() {
-    _.extend(this, Backbone.Events);
-    this.on('add_to_cart', this.cart.addItem.bind(this.cart));
-    this.on('empty', this.cart.empty.bind(this.cart));
-  },
-  init: function() {
-    this.bindEvents();
   }
 };
 

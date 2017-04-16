@@ -39,9 +39,6 @@ var Cart = Backbone.Collection.extend({
       return a + b;
     }, 0);
   },
-  empty: function() {
-    this.reset([]);
-  },
   destroy: function(id) {
     this.remove(id);
   },

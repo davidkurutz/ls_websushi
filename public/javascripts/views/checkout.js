@@ -9,7 +9,7 @@ var CheckoutView = Backbone.View.extend({
     // 'submit form': "cancelOrder"
   },
   cancelOrder: function(e) {
-    App.trigger('empty');
+    this.collection.reset([]);
   },
   changeQuantity: function(e) {
     e.preventDefault();

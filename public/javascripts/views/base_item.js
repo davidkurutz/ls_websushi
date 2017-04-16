@@ -7,6 +7,7 @@ var BaseItemView = Backbone.View.extend({
     
     var item = this.model;
         data = item.toJSON();
+        self = this;
 
     $.ajax({
       url: "/cart",
@@ -15,7 +16,7 @@ var BaseItemView = Backbone.View.extend({
         "item": JSON.stringify(data)
       },
       success: function() {
-        App.trigger("add_to_cart", item);
+        App.cart.addItem(item);
       }
     });
   },

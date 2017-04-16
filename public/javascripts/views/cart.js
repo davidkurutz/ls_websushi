@@ -18,7 +18,7 @@ var CartView = Backbone.View.extend({
       type: "delete",
       success: function() {
         self.$el.slideUp(App.speed, function() {
-          App.trigger("empty");
+          self.collection.reset([]);
         });
       }
     });
