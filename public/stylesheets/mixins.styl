@@ -1,0 +1,42 @@
+colors = {
+  grey: #787878,
+  grey2: #b0b0b0,
+  white: #fff,
+  black: #000,
+  red: #d60041,
+  pink: #a90040,
+  pink2: #ff3170
+}
+
+
+angle(color)
+  content: ""
+  display: block
+  width: 0
+  height: 0
+  position: absolute
+  left: 0
+  top: 0
+  border-right: 14px solid transparent
+  border-bottom: 14px solid transparent
+  border-top: 14px solid color
+  border-left: 14px solid color
+  
+plus_sign()
+  content: "+"
+  margin: 0 5px 0 0
+  display: inline-block
+  font-size: 14px
+  font-weight: bold
+  
+red_button()
+  color: colors.white
+  text-transform: uppercase
+  position: relative
+  background: linear-gradient(to bottom, colors.red 0%, colors.pink 100%)
+  &:hover
+    background: linear-gradient(to bottom, colors.pink 0%, colors.red 100%)
+    
+uppercase_pink()
+  color: colors.pink2
+  text-transform: uppercase

@@ -1,0 +1,319 @@
+@import "whitespace-reset-modified.css"
+@import "mixins"
+
+body 
+  background: url("../images/background-image.png") repeat
+  font: normal 14px "Lucianda", Helvetica, Arial, sans-serif
+  & > header,
+  & > footer
+    border-bottom: 1px solid colors.grey
+  & > header
+    overflow: hidden
+    margin: 0 auto
+    padding: 50px 0
+    .logo
+      float: left
+      cursor: pointer
+    .cart
+      width: 220px
+      float: right
+      span
+        display: inline-block
+        box-sizing: border-box
+        font-size: 10px
+        letter-spacing: 1px
+        &.left,
+        &.right
+          text-transform: uppercase
+          width: 50%
+          text-align: center
+        &.left
+          padding: 8px 5px
+          background: colors.black
+          color: colors.grey2
+        &.right
+          padding: 7px 15px 7px 10px
+          red_button()
+          &:before
+            angle(colors.black)
+        &.count
+          font-size: 12px
+  & > footer
+    margin: 50px auto
+
+body > header,
+main,
+body > footer,
+#item_details
+  width: 1000px
+
+a 
+  text-decoration: none
+  &:focus, :active
+    outline: none
+
+main
+  margin: 0 auto
+  ul
+    font-size: 0
+  li
+    width: 200px
+    display: inline-block
+    font-size: 14px
+
+#cart
+  height: 120px
+  overflow: hidden
+  background: colors.black
+  color: colors.white
+  ul
+    float: left
+    height: inherit
+    width: 700px
+    font-size: 0
+    li
+      width: 100px
+      text-align: right
+      font-size: 11px
+      img
+        width: 100%
+  section
+    float: right
+    width: 200px
+    padding: 20px 0 10px 15px
+    background: #1f1f1f
+    h3
+      font-size: 10px
+      text-transform: uppercase
+      color: colors.grey2
+    .total
+      margin: 5px 0
+      font-size: 30px
+    footer
+      a
+        text-align: right
+        font-size: 10px
+        display: inline-block
+        box-sizing: border-box
+        font-size: 10px
+        &.left
+          width: 40%
+          uppercase_pink()
+        &.right 
+          width: 60%
+          padding: 7px 15px 7px 10px
+          red_button()
+          &:before
+            angle(#1f1f1f)
+
+#items 
+  li
+    position: relative
+    height: 340px
+    margin: 20px 0 0 0
+    background: colors.white
+    box-sizing: border-box
+    article
+      position: absolute
+      box-shadow: 2px 0px 2px -2px #888
+      z-index: 10
+    &:nth-child(5n)
+      article
+        box-shadow: none
+    header
+      position: relative
+      margin: 0
+      padding: 0
+      border: none
+      cursor: pointer
+      &:hover
+        h2
+          color: colors.black
+        &:after
+          position: absolute
+          box-sizing: border-box
+          height: 200px
+          width: 200px
+          padding: 70px
+          top: 0
+          left: 0
+          background: rgba(0,0,0,0.6)
+          content: url("../images/arrow-right.png")
+          text-align: center
+      h2
+        margin: 25px 0 10px 0
+        text-align: center
+        text-transform: capitalize
+        font-weight: normal
+        font-size: 20px
+        letter-spacing: 1px
+        color: #ab7829
+  p
+    margin: 0 0 20px 0
+    text-align: center
+    letter-spacing: 1px
+    color: colors.grey2
+  .add_cart
+    display: block
+    padding: 13px 0
+    border-top: 1px dotted colors.grey2
+    text-align: center
+    text-transform: uppercase
+    font-size: 12px
+    cursor: pointer
+    color: colors.red
+    &:before
+      plus_sign()
+    &:hover
+      color: colors.white
+      background: colors.red
+      transition: color 0.75s, background 0.75s
+
+#item_details
+  position: relative
+  min-height: 590px
+  margin: 20px 0 0 0
+  background: url("../images/sushi-preview.png")
+  & > div
+    position: absolute
+    height: 200px
+    top: 50%
+    margin: -100px 0 0 0
+    font-size: 0
+    & > *
+      box-sizing: border-box
+      display: inline-block
+      height: inherit
+      font-size: 12px
+      vertical-align: middle
+    .nav
+      width: 100px
+      padding: 80px 0 0 0
+      background: colors.black
+      text-align: center
+      cursor: pointer
+      &:hover
+        color: colors.black
+        background: colors.red
+        transition: color 0.35s, background 0.35s
+    article,
+    aside
+      background: colors.white
+    article
+      width: 400px
+      h1
+        margin: 25px 0 5px 25px
+        font-size: 35px
+        font-weight: normal
+      p
+        margin: 0 0 0 25px
+      footer
+        margin: 45px 0 0 0
+        border-top: 1px dotted colors.grey2
+        & > *
+          display: inline-block
+        h2
+          margin: 20px 0 0 25px
+          font-size: 30px
+          font-weight: normal
+          color: colors.grey
+        .add_cart
+          float: right
+          margin: 20px 25px 0 0
+          padding: 7px 15px 7px 10px
+          red_button()
+          &:before
+            plus_sign()
+      .close
+        float: right
+        margin: 10px 20px 0 0
+        transform: rotate(45deg)
+        font-size: 25px
+        color: colors.black
+    aside
+      width: 200px
+      padding: 0 20px
+      box-shadow: -1px 0px 2px 0px #aaa
+      h3
+        margin: 30px 0 15px 0
+        font-size: 13px
+        text-align: center
+        letter-spacing: 0.5px
+      table
+        width: 100%
+        tr
+          td
+            color: colors.grey
+          & + td
+            text-align: right
+            color: colors.black
+
+#checkout
+  & > div
+    background: url("../images/sushi-preview.png")
+    height: 60px
+    &.img_top
+      background-position: top
+    &.img_bottom
+      background-position: bottom
+  & > section
+    padding: 55px 100px
+    background: colors.white
+    h1 
+      margin: 0 0 60px 0
+      font-size: 40px
+    table
+      width: 800px
+      border-collapse: collapse
+      text-align: left
+      thead 
+        text-transform: uppercase
+      tbody
+        td 
+          border-top: 1px solid colors.grey2
+          border-bottom: 1px solid colors.grey2
+          img
+            height: 100px
+      td:nth-child(4),
+      th:nth-child(4)
+        text-align: right
+      td
+        &:nth-child(2)
+          font-size: 20px
+        &:nth-child(3)
+          font-weight: bold
+          .quantity_modifier
+            margin: 0 10px
+            vertical-align: middle
+            border-radius: 100%
+            font-size: 12px
+            cursor: pointer
+          p
+            display: inline-block
+        &:nth-child(4)
+          font-size: 20px
+          letter-spacing: 2px
+    & > p
+      margin: 15px 0 0 0
+      text-align: right
+      font-size: 10px
+      text-transform: uppercase
+      color: colors.grey
+      .total
+        margin: 0 0 0 10px
+        font-size: 30px
+        letter-spacing: 2px
+        color: colors.black
+    footer
+      margin: 50px 0 0 0
+      text-align: right
+      a
+        uppercase_pink()
+    form 
+      display: inline-block
+      margin: 0 0 0 20px
+      input
+        border: none
+        font-size: 14px
+        padding: 15px
+        red_button()

@@ -1,24 +1,11 @@
 @import "whitespace-reset-modified.css";
-
 body {
   background: url("../images/background-image.png") repeat;
   font: normal 14px "Lucianda", Helvetica, Arial, sans-serif;
 }
 body > header,
-main,
-body > footer {
-  width: 1000px;
-}
-body > header,
 body > footer {
   border-bottom: 1px solid #787878;
-}
-a {
-  text-decoration: none;
-}
-a:focus,
-a:active {
-  outline: none;
 }
 body > header {
   overflow: hidden;
@@ -37,21 +24,25 @@ body > header .cart span {
   display: inline-block;
   box-sizing: border-box;
   font-size: 10px;
-  font-size: 10px;
   letter-spacing: 1px;
 }
-body > header .cart span.left {
-  width: 40%;
-  color: #ff3170;
+body > header .cart span.left,
+body > header .cart span.right {
   text-transform: uppercase;
+  width: 50%;
+  text-align: center;
+}
+body > header .cart span.left {
+  padding: 8px 5px;
+  background: #000;
+  color: #b0b0b0;
 }
 body > header .cart span.right {
-  width: 60%;
-  color: #fff;
-  position: relative;
   padding: 7px 15px 7px 10px;
-  background: linear-gradient(to bottom, #d60041 0%, #a90040 100%);
+  color: #fff;
   text-transform: uppercase;
+  position: relative;
+  background: linear-gradient(to bottom, #d60041 0%, #a90040 100%);
 }
 body > header .cart span.right:hover {
   background: linear-gradient(to bottom, #a90040 0%, #d60041 100%);
@@ -64,24 +55,29 @@ body > header .cart span.right:before {
   position: absolute;
   left: 0;
   top: 0;
-  border-top: 14px solid #000;
   border-right: 14px solid transparent;
   border-bottom: 14px solid transparent;
+  border-top: 14px solid #000;
   border-left: 14px solid #000;
-}
-body > header .cart span.left {
-  width: 50%;
-  padding: 8px 5px;
-  text-align: center;
-  background: #000;
-  color: #b0b0b0;
-}
-body > header .cart span.right {
-  width: 50%;
-  text-align: center;
 }
 body > header .cart span.count {
   font-size: 12px;
+}
+body > footer {
+  margin: 50px auto;
+}
+body > header,
+main,
+body > footer,
+#item_details {
+  width: 1000px;
+}
+a {
+  text-decoration: none;
+}
+a:focus,
+a :active {
+  outline: none;
 }
 main {
   margin: 0 auto;
@@ -89,7 +85,7 @@ main {
 main ul {
   font-size: 0;
 }
-main ul li {
+main li {
   width: 200px;
   display: inline-block;
   font-size: 14px;
@@ -143,11 +139,11 @@ main ul li {
 }
 #cart section footer a.right {
   width: 60%;
-  color: #fff;
-  position: relative;
   padding: 7px 15px 7px 10px;
-  background: linear-gradient(to bottom, #d60041 0%, #a90040 100%);
+  color: #fff;
   text-transform: uppercase;
+  position: relative;
+  background: linear-gradient(to bottom, #d60041 0%, #a90040 100%);
 }
 #cart section footer a.right:hover {
   background: linear-gradient(to bottom, #a90040 0%, #d60041 100%);
@@ -160,9 +156,9 @@ main ul li {
   position: absolute;
   left: 0;
   top: 0;
-  border-top: 14px solid #1f1f1f;
   border-right: 14px solid transparent;
   border-bottom: 14px solid transparent;
+  border-top: 14px solid #1f1f1f;
   border-left: 14px solid #1f1f1f;
 }
 #items li {
@@ -211,13 +207,13 @@ main ul li {
   letter-spacing: 1px;
   color: #ab7829;
 }
-#items li p {
+#items p {
   margin: 0 0 20px 0;
   text-align: center;
   letter-spacing: 1px;
   color: #b0b0b0;
 }
-#items li .add_cart {
+#items .add_cart {
   display: block;
   padding: 13px 0;
   border-top: 1px dotted #b0b0b0;
@@ -227,21 +223,20 @@ main ul li {
   cursor: pointer;
   color: #d60041;
 }
-#items li .add_cart:before {
+#items .add_cart:before {
   content: "+";
   margin: 0 5px 0 0;
   display: inline-block;
   font-size: 14px;
   font-weight: bold;
 }
-#items li .add_cart:hover {
+#items .add_cart:hover {
   color: #fff;
   background: #d60041;
   transition: color 0.75s, background 0.75s;
 }
 #item_details {
   position: relative;
-  width: 1000px;
   min-height: 590px;
   margin: 20px 0 0 0;
   background: url("../images/sushi-preview.png");
@@ -303,11 +298,11 @@ main ul li {
 #item_details > div article footer .add_cart {
   float: right;
   margin: 20px 25px 0 0;
-  color: #fff;
-  position: relative;
   padding: 7px 15px 7px 10px;
-  background: linear-gradient(to bottom, #d60041 0%, #a90040 100%);
+  color: #fff;
   text-transform: uppercase;
+  position: relative;
+  background: linear-gradient(to bottom, #d60041 0%, #a90040 100%);
 }
 #item_details > div article footer .add_cart:hover {
   background: linear-gradient(to bottom, #a90040 0%, #d60041 100%);
@@ -343,7 +338,7 @@ main ul li {
 #item_details > div aside table tr td {
   color: #787878;
 }
-#item_details > div aside table tr td + td {
+#item_details > div aside table tr + td {
   text-align: right;
   color: #000;
 }
@@ -425,23 +420,19 @@ main ul li {
   color: #ff3170;
   text-transform: uppercase;
 }
-#checkout > section footer form {
+#checkout > section form {
   display: inline-block;
   margin: 0 0 0 20px;
 }
-#checkout > section footer form input {
+#checkout > section form input {
   border: none;
-  color: #fff;
-  position: relative;
-  padding: 7px 15px 7px 10px;
-  background: linear-gradient(to bottom, #d60041 0%, #a90040 100%);
-  text-transform: uppercase;
   font-size: 14px;
   padding: 15px;
+  color: #fff;
+  text-transform: uppercase;
+  position: relative;
+  background: linear-gradient(to bottom, #d60041 0%, #a90040 100%);
 }
-#checkout > section footer form input:hover {
+#checkout > section form input:hover {
   background: linear-gradient(to bottom, #a90040 0%, #d60041 100%);
-}
-body > footer {
-  margin: 50px auto;
 }
