@@ -32,14 +32,14 @@ var ItemDetailView = BaseItemView.extend({
   slideTo: function(id, direction) {
     var $item = $(this.$el.children('div')[0]),
         itemWidth = $item.css('width'),
-        leftPos = 0;
+        left = 0;
     
-    leftPos = direction === 'left' ? itemWidth : leftPos;
+    left = direction === 'left' ? itemWidth : left;
 
     $item.animate({
       position: 'absolute',
       width: '-=' + itemWidth,
-      left: '+=' + leftPos
+      left: '+=' + left
     }, 150, function() {
       this.remove();
       App.detailView(id);
