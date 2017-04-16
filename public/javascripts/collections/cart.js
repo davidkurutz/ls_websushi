@@ -39,9 +39,6 @@ var Cart = Backbone.Collection.extend({
       return a + b;
     }, 0);
   },
-  destroy: function(id) {
-    this.remove(id);
-  },
   updateCartView: function() {
     this.trigger('cart_updated');
   },

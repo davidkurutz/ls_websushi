@@ -6,7 +6,6 @@ var CheckoutView = Backbone.View.extend({
   events: {
     'click .fa': "changeQuantity",
     'click footer a': "cancelOrder"
-    // 'submit form': "cancelOrder"
   },
   cancelOrder: function(e) {
     this.collection.reset([]);
