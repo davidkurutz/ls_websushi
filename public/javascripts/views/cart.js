@@ -7,7 +7,7 @@ var CartView = Backbone.View.extend({
   },
   checkout: function(e) {
     e.preventDefault();
-    App.checkoutView();
+    App.trigger('checkout');
   },
   emptyCart: function(e) {
     e.preventDefault();

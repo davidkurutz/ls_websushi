@@ -40,6 +40,13 @@ var App = {
   },
   checkoutView: function() {
     new CheckoutView({ collection: this.cart });
+  },
+  init: function() {
+    _.extend(this, Backbone.Events);
+    this.on('add_to_cart', this.cart.addItem.bind(this.cart));
+    this.on('checkout', this.checkoutView.bind(this));
+    this.on('menu', this.menuView.bind(this));
+    this.on('detail', this.detailView.bind(this));
   }
 };
 

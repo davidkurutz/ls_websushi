@@ -9,7 +9,7 @@ var ItemView = BaseItemView.extend({
   },
   detailView: function(e) {
     e.preventDefault();
-    App.detailView(this.model.get('id'));
+    App.trigger('detail', this.model.get('id'));
   },
   render: function() {
     this.$el.html(this.template(this.model.toJSON()));

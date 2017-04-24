@@ -7,7 +7,7 @@ var HeaderView = Backbone.View.extend({
   menuView: function(e) {
     e.preventDefault();
     this.undelegateEvents();
-    App.menuView();
+    App.trigger('menu');
   },
   render: function() {
     this.$el.html(this.template({
