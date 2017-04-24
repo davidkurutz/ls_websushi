@@ -1,8 +1,8 @@
-var express = require('express'),
-    router = express.Router(),
-    path = require('path'),
-    Items = require(path.resolve(path.dirname(__dirname), 'local_modules/items_module')),
-    Cart = require(path.resolve(path.dirname(__dirname), 'local_modules/cart_module'));
+var express = require('express');
+var router = express.Router();
+var path = require('path');
+var Items = require(path.resolve(path.dirname(__dirname), 'local_modules/items_module'));
+var Cart = require(path.resolve(path.dirname(__dirname), 'local_modules/cart_module'));
 
 /* GET home page. */
 
@@ -16,7 +16,7 @@ module.exports = function(router) {
 
   router.post("/", function(req, res, next) {
     Cart.clear();
-    res.redirect('/index.html')
-  })
-}
+    res.redirect('/index.html');
+  });
+};
 
