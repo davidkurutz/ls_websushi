@@ -21,7 +21,7 @@ app.use(stylus.middleware({
   compile: function(str, p) {
     return stylus(str).set("filename", p).use(nib());
   }
-}))
+}));
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
