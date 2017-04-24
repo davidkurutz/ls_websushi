@@ -16,9 +16,9 @@ var ItemDetailView = BaseItemView.extend({
   },
   switch: function(e) {
     e.preventDefault();
-    var id = this.model.get('id'),
-        direction,
-        new_id;
+    var id = this.model.get('id');
+    var direction;
+    var new_id;
 
     if ($(e.currentTarget).hasClass('prev')) {
       direction = 'left';
@@ -30,9 +30,9 @@ var ItemDetailView = BaseItemView.extend({
     this.slideTo(new_id, direction);
   },
   slideTo: function(id, direction) {
-    var $item = $(this.$el.children('div')[0]),
-        itemWidth = $item.css('width'),
-        left = 0;
+    var $item = $(this.$el.children('div')[0]);
+    var itemWidth = $item.css('width');
+    var left = 0;
     
     left = direction === 'left' ? itemWidth : left;
 

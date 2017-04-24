@@ -12,11 +12,17 @@ var CheckoutView = Backbone.View.extend({
   },
   changeQuantity: function(e) {
     e.preventDefault();
-    var id = +$(e.target).closest("tr").attr("data-id"),
-        model = App.cart.get(id),
-        cart = this.collection;
 
-    $(e.target).hasClass('fa-plus') ? cart.addItem(model) : cart.removeItem(model);
+    var id = +$(e.target).closest("tr").attr("data-id");
+    var cart = this.collection;
+    var model = cart.get(id);
+
+    if ($(e.target).hasClass('fa-plus')) {
+      cart.addItem(model);
+    } else {
+      cart.removeItem(model);
+    }
+
     this.render();
     this.delegateEvents();
     cart.sync('update', cart);

@@ -1,11 +1,11 @@
 var Cart = Backbone.Collection.extend({
   url: "/cart",
   addItem: function(model) {
-    var existing_m = this.get(model.get('id')),
-        m;
+    var existingM = this.get(model.get('id'));
+    var m;
 
-    if (existing_m) {
-      existing_m.set('quantity', existing_m.get('quantity') + 1);
+    if (existingM) {
+      existingM.set('quantity', existingM.get('quantity') + 1);
       this.trigger('model_update');
     } else {
       m = model.clone();
@@ -14,11 +14,11 @@ var Cart = Backbone.Collection.extend({
     }
   },
   removeItem: function(model) {
-    var existing_m = this.get(model.get('id')),
-        current_q = existing_m.get('quantity');
+    var existingM = this.get(model.get('id'));
+    var currentQ = existingM.get('quantity');
 
-    if (current_q > 1) {
-      existing_m.set('quantity', current_q - 1);
+    if (currentQ > 1) {
+      existingM.set('quantity', currentQ - 1);
       this.trigger('model_update');
     } else {
       this.remove(model);
@@ -28,11 +28,11 @@ var Cart = Backbone.Collection.extend({
     return this.sum(this.pluck('quantity'));
   },
   total: function() {
-    var item_totals = this.models.map(function(m){
+    var itemTotals = this.models.map(function(m){
       return m.get('quantity') * m.get('price');
     });
 
-    return this.sum(item_totals);
+    return this.sum(itemTotals);
   },
   sum: function(array) {
     return array.reduce(function(a,b) {
